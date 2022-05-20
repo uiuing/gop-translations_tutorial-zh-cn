@@ -1,0 +1,9 @@
+// There are three ways to write Go+'s Hello world.
+
+# The first type: command style
+
+println "Hello world"
+
+// This is our recommended way of writing, and it is very easy to understand.
+// Especially for elementary and middle school students, commands are the easiest
+// logic for them to understand, which is much easier to understand than function calls.

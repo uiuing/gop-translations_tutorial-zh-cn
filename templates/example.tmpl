@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Go+ by Tutorials: {{.Title}}</title>
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no"></meta>
+    <link rel=stylesheet href="/site.css">
+    <script data-widgets="header,footer,code" src="https://goplus.org/widgets/loader.js"></script>
+  </head>
+  <script>
+      onkeydown = (e) => {
+          {{if .Prev}}if (e.key == "ArrowLeft") {
+              window.location.href = '{{.Prev.Path}}';
+          }{{end}}
+          {{if .Next}}if (e.key == "ArrowRight") {
+              window.location.href = '{{.Next.Path}}';
+          }{{end}}
+      }
+  </script>
+  <body>
+    {{ template "header" }}
+    <main class="main example" id="{{.Path}}">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-link-item"><a href="https://goplus.org">Go+</a></li>
+        <li class="breadcrumb-link-item"><a href="/">Tutorials</a></li>
+        <li class="breadcrumb-current-item">{{.Title}}</li>
+      </ul>
+      <div class="text-wrapper">
+        <h2>{{.Title}}</h2>
+        {{if .Files}}{{else}}
+          <p>No content yet, you can help us build it <a href="https://github.com/goplus/tutorial/tree/main/{{.Name}}">here</a>.</p>
+        {{end}}
+        {{range .Files}}
+          <div class="docs">
+            {{range .HeadDoc}}
+              {{.DocsRendered}}
+            {{end}}
+          </div>
+          <goplus-code half-code language="{{.Lang}}">{{range .Code}}{{if .DocsRendered}}<goplus-code-doc>{{.DocsRendered}}</goplus-code-doc>{{end}}{{.CodeRendered}}{{end}}</goplus-code>
+          <div class="docs">
+            {{range .TailDoc}}
+              {{.DocsRendered}}
+            {{end}}
+          </div>
+        {{end}}
+        {{if .Next}}
+        <p class="next">
+          Next example: <a href="{{.Next.Path}}">{{.Next.Title}}</a>
+        </p>
+        {{end}}
+      </div>
+    </main>
+    {{ template "footer" }}
+    <script src="./clipboard.min.js"></script>
+    <script>
+    new ClipboardJS('.copy')
+    </script>
+  </body>
+</html>

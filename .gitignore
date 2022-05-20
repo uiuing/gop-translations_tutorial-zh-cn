@@ -1,0 +1,46 @@
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+*.txt
+*.cache
+.DS_Store
+go.json
+x.mod
+gop
+gopfmt
+goptestgo
+
+# Folders
+_obj
+_test
+_old
+_t
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+coverage.txt
+
+.gop/
+gop_autogen*.go
+gop_autogen*_test.go
+go.json
+*.cache
+
+*.exe
+*.test
+*.prof
+
+.vscode
+.idea
+
+cmd/qfmt/qfmt

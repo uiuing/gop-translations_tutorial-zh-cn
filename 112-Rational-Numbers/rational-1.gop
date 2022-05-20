@@ -1,0 +1,25 @@
+// Go+ has various rational number types including bigint, bigrat and bigfloat.
+// Here are a few basic examples on bigint type.
+
+# Declaration and assignment of bigint type variables
+
+import "math/big"
+
+// The Go+ language uses the keyword "var" to declare variables.
+var bint1 bigint
+var bint2 *big.Int
+
+// the integer rational variable can be assigned when declaration.
+// (1r<<65), the value is equal to the 65th power of 2.
+var bint3 bigint = 1r << 65
+
+// Notice:
+// The initial value of a rational variable without assignment is not 0 but `<nil>`.
+//
+// Expected results：
+// bint1: `<nil>`
+// bint2: `<nil>`
+// bint3: `36893488147419103232`
+println "bint1:", bint1
+println "bint2:", bint2
+println "bint3:", bint3

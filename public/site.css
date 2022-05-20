@@ -1,0 +1,281 @@
+/* CSS reset: http://meyerweb.com/eric/tools/css/reset/ */
+/* 
+:root {
+  --layout-width: 1000px;
+  --layout-doc-width: 420px;
+  --layout-code-width: 580px;
+} */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Layout and typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    font-size: 14px;
+    line-height: 1.5715;
+    color: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* main wrapper */
+.main {
+    width: 1176px;
+    position: relative;
+    margin: 0 auto;
+}
+@media screen and (max-width: 640px) {
+    .main {
+        width: 100%;
+        padding: 16px;
+    }
+}
+
+/* breadcrumb */
+.breadcrumb {
+    display: flex;
+    flex-direction: row;
+    margin-top: 36px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+@media screen and (max-width: 640px) {
+    .breadcrumb {
+        margin-top: 0;
+    }
+}
+.breadcrumb-link-item, .breadcrumb-sep {
+    color: #999999;
+}
+.breadcrumb-link-item::after {
+    content: "/";
+    margin: 0 8px;
+}
+.breadcrumb-link-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: all .3s;
+}
+.breadcrumb-link-item a:hover {
+    color: #333;
+}
+.breadcrumb-sep {
+    margin: 0 8px;
+}
+.breadcrumb-current-item {
+    color: #333;
+}
+
+/* text wrapper */
+.text-wrapper {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.text-wrapper em {
+    font-style: italic;
+}
+.text-wrapper a {
+    text-decoration: none;
+}
+.text-wrapper a, .text-wrapper a:visited {
+    color: #2C84FF;
+}
+.text-wrapper a:hover {
+    text-decoration: underline;
+}
+.text-wrapper h1, .text-wrapper h2, .text-wrapper h3, .text-wrapper h4, .text-wrapper h5, .text-wrapper h6 {
+    font-weight: 500;
+    font-family: PingFangSC, PingFangSC-Medium, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+.text-wrapper h2 {
+    font-size: 32px;
+    line-height: 45px;
+    margin: 28px 0 40px;
+}
+.text-wrapper h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 28px 0 24px;
+}
+.text-wrapper h4 {
+    font-size: 16px;
+    margin: 24px 0 20px;
+}
+.text-wrapper h5 {
+    font-size: 14px;
+    margin: 20px 0 16px;
+}
+.text-wrapper p {
+    margin: 22px 0;
+}
+.text-wrapper ul, .text-wrapper ol {
+    margin-bottom: 22px;
+    padding-left: 2em;
+}
+.text-wrapper ul {
+    list-style: initial;
+}
+.text-wrapper ol {
+    list-style: decimal;
+}
+.text-wrapper li {
+    margin-bottom: 10px;
+}
+
+/* example link list in home page */
+@media screen and (min-width: 641px) {
+    .text-wrapper .example-link-list {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        list-style: none;
+        padding: 0;
+    }
+    .text-wrapper a.example-link {
+        display: flex;
+        align-items: center;
+        padding: 9px 16px;
+        min-height: 70px;
+        color: #000;
+        background-color: #F5F5F5;
+        transition: all .3s;
+    }
+    .text-wrapper a.example-link:hover {
+        text-decoration: none;
+        background-color: #EEE;
+    }
+}
+.text-wrapper pre, .text-wrapper code {
+    font-family: 'Menlo', 'Monaco', 'Consolas', 'Lucida Console', monospace;
+}
+
+/* next example link in example page */
+p.next {
+    margin: 72px 0;
+    padding: 16px 0;
+    border-top: 1px solid #E5E5E5;
+}
+p.next a::after {
+    content: " >";
+}
+@media screen and (max-width: 640px) {
+    p.next {
+        margin: 36px 0 0;
+    }
+}
+
+/* docs in example page */
+.docs {
+    width: 50%;
+}
+@media screen and (max-width: 640px) {
+    .docs {
+        width: 100%;
+    }
+}
+
+/* Syntax highlighting */
+body .hll { background-color: #ffffcc }
+body .err { border: 1px solid #FF0000 }         /* Error */
+body .c  { color: #408080; font-style: italic } /* Comment */
+body .k  { color: #954121 }                     /* Keyword */
+body .o  { color: #666666 }                     /* Operator */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 }                     /* Comment.Preproc */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 }                     /* Generic.Deleted */
+body .ge { font-style: italic }                 /* Generic.Emph */
+body .gr { color: #FF0000 }                     /* Generic.Error */
+body .gh { color: #000080; font-weight: bold }  /* Generic.Heading */
+body .gi { color: #00A000 }                     /* Generic.Inserted */
+body .go { color: #808080 }                     /* Generic.Output */
+body .gp { color: #000080; font-weight: bold }  /* Generic.Prompt */
+body .gs { font-weight: bold }                  /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold }  /* Generic.Subheading */
+body .gt { color: #0040D0 }                     /* Generic.Traceback */
+body .kc { color: #954121 }                     /* Keyword.Constant */
+body .kd { color: #954121 }                     /* Keyword.Declaration */
+body .kn { color: #954121 }                     /* Keyword.Namespace */
+body .kp { color: #954121 }                     /* Keyword.Pseudo */
+body .kr { color: #954121; font-weight: bold }  /* Keyword.Reserved */
+body .kt { color: #B00040 }                     /* Keyword.Type */
+body .m  { color: #666666 }                     /* Literal.Number */
+body .s  { color: #219161 }                     /* Literal.String */
+body .na { color: #7D9029 }                     /* Name.Attribute */
+body .nb { color: #954121 }                     /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold }  /* Name.Class */
+body .no { color: #880000 }                     /* Name.Constant */
+body .nd { color: #AA22FF }                     /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold }  /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold }  /* Name.Exception */
+body .nf {  }                     /* Name.Function */
+body .nl { color: #A0A000 }                     /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold }  /* Name.Namespace */
+body .nt { color: #954121; font-weight: bold }  /* Name.Tag */
+body .nv { color: #19469D }                     /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold }  /* Operator.Word */
+body .w  { color: #bbbbbb }                     /* Text.Whitespace */
+body .mf { color: #666666 }                     /* Literal.Number.Float */
+body .mh { color: #666666 }                     /* Literal.Number.Hex */
+body .mi { color: #666666 }                     /* Literal.Number.Integer */
+body .mo { color: #666666 }                     /* Literal.Number.Oct */
+body .sb { color: #219161 }                     /* Literal.String.Backtick */
+body .sc { color: #219161 }                     /* Literal.String.Char */
+body .sd { color: #219161; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #219161 }                     /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold }  /* Literal.String.Escape */
+body .sh { color: #219161 }                     /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold }  /* Literal.String.Interpol */
+body .sx { color: #954121 }                     /* Literal.String.Other */
+body .sr { color: #BB6688 }                     /* Literal.String.Regex */
+body .s1 { color: #219161 }                     /* Literal.String.Single */
+body .ss { color: #19469D }                     /* Literal.String.Symbol */
+body .bp { color: #954121 }                     /* Name.Builtin.Pseudo */
+body .vc { color: #19469D }                     /* Name.Variable.Class */
+body .vg { color: #19469D }                     /* Name.Variable.Global */
+body .vi { color: #19469D }                     /* Name.Variable.Instance */
+body .il { color: #666666 }                     /* Literal.Number.Integer.Long */
