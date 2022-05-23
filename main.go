@@ -107,24 +107,33 @@ func renderIndex(tutorial []string) []byte {
 	_, err = indexTmpl.Parse(mustReadFile("templates/index.tmpl"))
 	check(err)
 
+	err = utils.InitTranslationDictionary()
+	check(err)
+
 	var buf bytes.Buffer
 	var indexes = make(map[string]*exampleIndex, len(tutorial))
 	var chs []*chapter
 	var ch *chapter
 	var prev *exampleIndex
+	var chineseTitleEsc string
 	for _, name := range tutorial {
 		title := name[chNumLen+1:]
 		titleEsc := strings.ReplaceAll(title, "-", " ")
 		if strings.HasSuffix(name[:chNumLen], "00") {
-			chineseTitleEsc := utils.TranslateTitle(titleEsc)
+			chineseTitleEsc, err = utils.TranslateText("styleTitleDictionaries", titleEsc)
+			check(err)
+
 			ch = &chapter{Title: chineseTitleEsc}
 			chs = append(chs, ch)
 			continue
 		}
+		chineseTitleEsc, err = utils.TranslateText("exampleTitleDictionaries", titleEsc)
+		check(err)
+
 		idx := &exampleIndex{
 			Path:  "/" + strings.ToLower(strings.ReplaceAll(gohtml.UnescapeString(title), "/", "-")),
 			Name:  name,
-			Title: titleEsc,
+			Title: chineseTitleEsc,
 		}
 		if ch == nil {
 			ch = new(chapter)
