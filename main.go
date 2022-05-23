@@ -19,8 +19,9 @@ import (
 
 	gohtml "html"
 
-	"github.com/goplus/tutorial/internal"
 	"github.com/russross/blackfriday/v2"
+	"github.com/uiuing/gop-translations_tutorial-zh-cn/internal"
+	"github.com/uiuing/gop-translations_tutorial-zh-cn/utils"
 )
 
 const (
@@ -115,7 +116,8 @@ func renderIndex(tutorial []string) []byte {
 		title := name[chNumLen+1:]
 		titleEsc := strings.ReplaceAll(title, "-", " ")
 		if strings.HasSuffix(name[:chNumLen], "00") {
-			ch = &chapter{Title: titleEsc}
+			chineseTitleEsc := utils.TranslateTitle(titleEsc)
+			ch = &chapter{Title: chineseTitleEsc}
 			chs = append(chs, ch)
 			continue
 		}

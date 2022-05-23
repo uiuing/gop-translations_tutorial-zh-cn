@@ -1,4 +1,4 @@
-module github.com/goplus/tutorial
+module github.com/uiuing/gop-translations_tutorial-zh-cn
 
 go 1.16
 
