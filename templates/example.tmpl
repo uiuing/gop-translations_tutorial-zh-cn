@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <title>Go+ by Tutorials: {{.Title}}</title>
+    <title>Go+ 教程：{{.Title}}</title>
     <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no"></meta>
     <link rel=stylesheet href="/site.css">
-    <script data-widgets="header,footer,code" src="https://goplus.org/widgets/loader.js"></script>
+    <link rel="icon" href="/favicon.ico?v=1.0" />
+    <script data-widgets="header,footer,code" src="https://cn.goplus.uiuing.com/widgets/loader.js"></script>
   </head>
   <script>
       onkeydown = (e) => {
@@ -22,13 +23,13 @@
     <main class="main example" id="{{.Path}}">
       <ul class="breadcrumb">
         <li class="breadcrumb-link-item"><a href="https://goplus.org">Go+</a></li>
-        <li class="breadcrumb-link-item"><a href="/">Tutorials</a></li>
+        <li class="breadcrumb-link-item"><a href="/">教程</a></li>
         <li class="breadcrumb-current-item">{{.Title}}</li>
       </ul>
       <div class="text-wrapper">
         <h2>{{.Title}}</h2>
         {{if .Files}}{{else}}
-          <p>No content yet, you can help us build it <a href="https://github.com/goplus/tutorial/tree/main/{{.Name}}">here</a>.</p>
+          <p>还没有内容，你可以帮助我们在 <a href="https://github.com/goplus/tutorial/tree/main/{{.Name}}">这里</a> 建立内容。</p>
         {{end}}
         {{range .Files}}
           <div class="docs">
@@ -45,7 +46,7 @@
         {{end}}
         {{if .Next}}
         <p class="next">
-          Next example: <a href="{{.Next.Path}}">{{.Next.Title}}</a>
+          下一个实例：<a href="{{.Next.Path}}">{{.Next.Title}}</a>
         </p>
         {{end}}
       </div>

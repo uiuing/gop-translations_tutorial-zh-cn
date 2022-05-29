@@ -17,8 +17,6 @@ import (
 	"text/template"
 	"unsafe"
 
-	gohtml "html"
-
 	"github.com/russross/blackfriday/v2"
 	"github.com/uiuing/gop-translations_tutorial-zh-cn/internal"
 	"github.com/uiuing/gop-translations_tutorial-zh-cn/utils"
@@ -117,8 +115,7 @@ func renderIndex(tutorial []string) []byte {
 	var prev *exampleIndex
 	var chineseTitleEsc string
 	for _, name := range tutorial {
-		title := name[chNumLen+1:]
-		titleEsc := strings.ReplaceAll(title, "-", " ")
+		titleEsc := strings.ReplaceAll(name[chNumLen+1:], "-", " ")
 		if strings.HasSuffix(name[:chNumLen], "00") {
 			chineseTitleEsc, err = utils.TranslateText("styleTitleDictionaries", titleEsc)
 			check(err)
@@ -131,7 +128,7 @@ func renderIndex(tutorial []string) []byte {
 		check(err)
 
 		idx := &exampleIndex{
-			Path:  "/" + strings.ToLower(strings.ReplaceAll(gohtml.UnescapeString(title), "/", "-")),
+			Path:  "/" + strings.ToLower(strings.ReplaceAll(chineseTitleEsc, " ", "-")),
 			Name:  name,
 			Title: chineseTitleEsc,
 		}
